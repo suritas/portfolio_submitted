@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--HEAD: NAME OF PAGE AND REFERENCE TO CSS STYLESHEET-->
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+				<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160395307-1"></script>
+				<script>
+				  window.dataLayer = window.dataLayer || [];
+				  function gtag(){dataLayer.push(arguments);}
+				  gtag('js', new Date());
+				  gtag('config', 'UA-160395307-1');
+				</script>
+		<!-- Other Head content -->
+		<meta charset="UTF-8">
+		<title>About</title>
+		<link rel="stylesheet" type="text/css" href="css/html5reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:200&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" type="image/png" href=images/ball2.png>
+
+	</head>
+<!-- BODY & NAV -->
+	<body>
+		<header>
+			<div class="skip">
+				<a href="#main">Skip to Main Content</a>
+			</div>
+			<img src="images/ball3.png" alt="logo" id = "logo">
+			<h1 id = "suritaux">SURITA : UX</h1>
+			<nav id = "nav">
+				<ul>
+					<li class="index"><a href = index.html> Welcome </a></li>
+					<li class="process"><a  href = process.html> Process </a></li>
+					<li class="resume"><a href = resume.html> Resume </a></li>
+					<li class="about"><a class="current" href = about.html> About </a></li>
+				</ul>
+			</nav>
+		</header>
+		<main id="main">
+			<div id = "about-container">
+				<div id = "about-text">
+					<img src="images/profilepic1.jpg" alt="surita's profile picture" id = "profile-pic-before">
+					<h2>HI, I’M SURITA!</h2>
+					<p>Thanks for visiting my portfolio!<br>
+					A little about me: I am currently in the University of Michigan's Information Master's Program, where my focus is on Human Computer Interaction & User Experience.  A few years ago I was creating database training materials when I realized there is a huge gap for the UX industry to fill. I have a passion for technical and educational writing, and am curious how language can be combined with UX Methodology to inform. </p>
+					<br>
+					<h2>A DIFFERENT APPROACH</h2>
+					<p>My background in scientific research and QA manual creation taught me to communicate complex processes with precision and care. In UI for example, I combine affordances and signifiers with language to devise interactions. In practice, I use information architecture, research, qualitative analysis, and survey to ideate solutions. <br>
+					When I am not working, you can find me at the beach, Trader Joe's, or watching anything directed by the Coen Brothers.
+					</p>
+					<br>
+				</div> <!-- abouttext closer div -->
+				<img src="images/profilepic1.jpg" alt="surita's profile picture" id = "profile-pic-after">
+			</div> <!-- about container closer div -->
+			<!-- <img src="images/greymail.jpg" alt="grey mail envelope icon" id = "greymail"> -->
+			<h4> Contact me!</h4>
+			<!-- contact form -->
+			<div class="form-container">
+				<form action="https://formspree.io/xayoando" method="POST">
+
+<!-- name -->
+							<label for="name">Name</label>
+							<input type="text" name="name" placeholder="Full Name" id="name"/>
+<!-- email -->
+							<label for="email" id="email-label">Email</label>
+							<input type="email" name="_replyto" placeholder="Your email..." id="email"/>
+
+<!-- subject -->
+							<label for="subject">Subject</label>
+							<input type="text" name="subject" placeholder="Subject..." id="subject"/>
+<!-- Message -->
+							<label for="message">Message</label>
+							<textarea name="message" placeholder="Your message here.." id="message"></textarea>
+
+						<input type="submit" value="Send" id= "submit-button"/>
+
+				</form>
+			</div>
+		</main>
+		<footer>
+			<p>Surita Spigner Portfolio 2020</p>
+			<div class="mobilefooter">Display: Mobile</div>
+			<div class="tabletfooter">Display: Tablet</div>
+			<div class="desktopfooter">Display: Desktop</div>
+		</footer>
+	</body>
+</html>

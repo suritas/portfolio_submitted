@@ -1,0 +1,859 @@
+/* -----GLOBAL VARS----- */
+:root {
+--ballstopx: calc(100vw - 80vw);
+/* main colors */
+
+--color1: black;/* for WAVE Orig:#99CC33*/
+--color2: #330033;/* for WAVE Orig:#F9A764*/
+--color3: #4f4e4e;
+--transparentcolor2: #F9A7647F;
+/* fonts */
+--font1: 'Open Sans', sans-serif;
+--font2: 'Raleway', sans-serif;
+}
+/*Citation for root: use: https://www.w3schools.com/css/css3_variables.asp */
+
+/* SKIP TO CONTENT */
+.skip a{
+  background: white;
+  left: 0;
+  padding: 6px;
+  /* slides down from above */
+  -webkit-transition: top 1s ease-out;
+  -moz-transition: top 1s ease-out;
+  -o-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+  /*to keep the "skip to content" button above page */
+  position: absolute;
+  top: -100px;
+}
+/* Focus has border, and begins as Skip to Content in the upper left */
+.skip a:focus {
+  position: absolute;
+  border: 2px solid black;
+  top: 0;
+  left: 0;
+}
+
+/* BODY */
+body{
+  font-family: var(--font1);
+  margin: 30px;
+  padding: 10px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.2em;
+  font-size: 2em;
+  text-decoration: none;
+  letter-spacing: .06em;
+}
+
+/*Keyframes for ball bounce animation*/
+@-webkit-keyframes bounce {
+  0% {-webkit-transform: translateY(-100px);}
+  10%, 30%, 50%, 100% {-webkit-transform: translateY(0);}
+  20% {-webkit-transform: translateY(-20px);}
+  40% {-webkit-transform: translateY(-5px);}
+  60% {-webkit-transform: translateY(-2px);}
+}
+@-moz-keyframes bounce {
+ 0% {-webkit-transform: translateY(-100px);}
+ 10%, 30%, 50%, 100% {-webkit-transform: translateY(0);}
+ 20% {-webkit-transform: translateY(-20px);}
+ 40% {-webkit-transform: translateY(-5px);}
+ 60% {-webkit-transform: translateY(-2px);}
+}
+@-o-keyframes bounce {
+ 0% {-webkit-transform: translateY(-100px);}
+ 10%, 30%, 50%, 100% {-webkit-transform: translateY(0);}
+ 20% {-webkit-transform: translateY(-20px);}
+ 40% {-webkit-transform: translateY(-5px);}
+ 60% {-webkit-transform: translateY(-2px);}
+}
+@keyframes bounce {
+ 0% {-webkit-transform: translateY(-100px);}
+ 10%, 30%, 50%, 100% {-webkit-transform: translateY(0);}
+ 20% {-webkit-transform: translateY(-20px);}
+ 40% {-webkit-transform: translateY(-5px);}
+ 60% {-webkit-transform: translateY(-2px);}
+}
+/* Citation Bounce:https://www.tutorialspoint.com/css/css_animation_bounce.htm */
+#logo, #resumelogo{
+ height: 100px;
+ padding-top: 50px;
+ position: relative;
+ /* first make a NAME for the animation above */
+ -webkit-animation-name: bounce;
+ -moz-animation-name: bounce;
+ -o-animation-name: bounce;
+ animation-name: bounce;
+ /* DURATION */
+ -webkit-animation-duration: 2s;
+ -moz-animation-duration: 2s;
+ -o-animation-duration: 2s;
+ animation-duration: 2s;
+ /* # of times/SO IT DOESNT REPEAT */
+ -webkit-animation-iteration-count: 1;
+ -moz-animation-iteration-count: 1;
+ -o-animation-iteration-count: 1;
+ animation-iteration-count: 1;
+ /* Stays in final position */
+ -webkit-animation-fill-mode: forwards;
+ -moz-animation-fill-mode: forwards;
+ -o-animation-fill-mode: forwards;
+ animation-fill-mode: forwards;
+}
+#resumelogo{
+  height:20px;
+  margin-top: 7px;
+  /* margin-left:49.5%; */
+  /* margin-top:50px; */
+}
+
+#suritaux{
+  position: absolute;
+  font-size: 50px;
+  padding-bottom: 30px;
+}
+
+header{
+border-bottom: 3px solid var(--color1);
+display:flex;
+flex-direction: column;
+align-items:center;
+
+}
+nav a{
+font-size:11px;
+color: black;
+text-decoration: none;
+padding: 9px;
+}
+nav a:hover{
+color:white;
+background-color: black;
+border: 2px solid black;
+padding: 5px;
+transition: .5s ease-in;
+}
+
+nav ul{
+display:flex;
+flex-direction: column;  /*DIRECTION MOBILE ONLY */
+padding-bottom: 10px;
+}
+nav li{
+padding: 1px;
+text-align: center;
+}
+.current {
+font-weight: bold;
+border: 2px solid var(--transparentcolor2);
+padding: 5px;
+}
+.gallery{
+display:flex;
+align-items:center;
+flex-wrap: wrap;
+justify-content: center;
+margin:50px;
+}
+.gallery > a{
+border: 10px grey solid;
+color:black;   /* for WAVE */
+font-size: 18px;  /* for WAVE */
+text-decoration: none;  /* for WAVE */
+text-align: center;  /* for WAVE */
+margin: 10px;
+width: 100px;
+height:100px;
+}
+.gallery a:hover:nth-child(even){
+border: 10px var(--color1) solid;
+color:black;   /* for WAVE */
+transition: 1s ease-in;
+}
+.gallery a:hover:nth-child(odd){
+border: 10px var(--color2) solid;
+color:black;   /* for WAVE */
+transition: 1s ease-in;
+}
+
+footer{
+background-color: black;
+font-size: 10px;
+line-height: normal;
+padding:5px;
+color: white;
+text-align: center;
+}
+
+.desktopfooter, .tabletfooter{
+  display: none;
+}
+.mobilefooter{
+  display: block;
+}
+/* --------------------------------WELCOME ONLY--------------------------------------- */
+#image1, #image2, #image3, #image4, #image5, #image6, #image7, #image8, #image9 {
+background-image: url(../images/ball3.png);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+#image1{
+background-image: url(../images/fish1.jpg);
+}
+#image2{
+background-image: url(../images/fish2.jpg);
+}
+#image3{
+background-image: url(../images/fish3.jpg);
+}
+#image4{
+background-image: url(../images/fish4.jpg);
+}
+#image5{
+background-image: url(../images/fish5.jpg);
+}
+#image6{
+background-image: url(../images/fish6.jpg);
+}
+#image7{
+background-image: url(../images/fish7.jpg);
+}
+#image8{
+background-image: url(../images/fish8.jpg);
+}
+#image9{
+background-image: url(../images/fish9.jpg);
+}
+
+#image1:hover{
+background-image: url(../images/cnbc-logo.png);
+}
+#image2:hover{
+background-image: url(../images/nbc-logo.png);
+}
+#image3:hover{
+background-image: url(../images/amazon-logo.png);
+}
+#image4:hover{
+background-image: url(../images/sas-logo.png);
+}
+#image5:hover{
+background-image: url(../images/justfutures_logotype.jpg);
+}
+#image6:hover{
+background-image: url(../images/comingsoon.jpg);
+}
+#image7:hover{
+background-image: url(../images/comingsoon.jpg);
+}
+#image8:hover{
+background-image: url(../images/comingsoon.jpg);
+}
+#image9:hover{
+background-image: url(../images/comingsoon.jpg);
+}
+/* --------------------------------PROCESS ONLY--------------------------------------- */
+
+.top-flexcontainer{
+display:flex;
+flex-direction: column;
+align-items:center;
+flex-wrap: wrap;
+justify-content: center;
+margin: 30px;
+}
+#cnbcphone{
+  width:100%;
+  align-self: center;
+}
+/* PROJECT TITLE */
+.projecttitle-before, .projecttitle-after {
+  width: 100%;
+  align-self: center;
+  font-size: 5vw;
+  font-weight:bold;
+  line-height: 1;
+  position: relative;
+  font-family: var(--font2);
+  /* display: inline-block; */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom:5px;
+  text-align: center;      /* MOBILEONLY */
+  /* Color fallback */
+  color: black;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -o-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-image: url(../images/cnbcbackground.png);
+  background-attachment: fixed; /* Parallax effect */
+  background-position: right;  /* Parallax effect */
+  background-repeat: no-repeat; /* Parallax effect */
+  background-size: cover;       /* Parallax effect */
+}
+/* Change the background position to display letter when the black zone isn't here */
+.projecttitle-before--no-textzone:before, .projecttitle-after-no-textzone:before {
+  background-position: -.75em 0;
+}
+.projecttitle-before--no-textzone:after, .projecttitle-after-no-textzone:after  {
+  content: none;
+}
+/* Use Background-size cover for photo background and no-repeat background */
+.projecttitle-before--cover,.projecttitle-before--cover:before,
+.projecttitle-after--cover, .projecttitle-after--cover:before {
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+/* CITATION: Background image text effect https://codepen.io/Jintos/pen/crlxk */
+.projecttitle-after{
+  display:none;
+}
+
+/* DESCRIPTION BELOW CONTAINER */
+.top-description{
+color: black; /* make contrast */
+background-color: white; /* make contrast */
+font-family: var(--font2);
+font-size: 16px;
+padding-top:10px;
+padding-bottom:20px;
+}
+
+/* STEPS */
+.container{
+display: grid;
+grid-column: 1fr;
+grid-row-gap: 10px;
+padding-top:25px;
+padding-bottom:15px;
+}
+.stepcontent{
+  padding:20px;
+  /*vertically centers rows to step */
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.stepcontent p {
+  padding:30px;
+  font-size: 16px;
+}
+/* bold top of bullet list */
+.subtitle {
+  padding:0px;
+  padding-top:2vh;
+  font-weight: bold;
+  letter-spacing: normal;
+}
+/* combo of bullet and bold top part */
+.stepcontent ul{
+  padding-left: 80px;
+  line-height: normal;
+  font-size: 13px;
+  color:var(--color3);
+}
+/* bullet part */
+.stepcontent li{
+  padding-top: 1.5vw;
+  padding-bottom:0vw;
+  padding-right: 5vw;
+}
+.stepcontentborder{
+  background-color: white;
+  border: 5px solid var(--transparentcolor2);
+  -webkit-background-clip: padding-box; /* Safari */
+  -moz-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box; /* IE9+, Firefox 4+, Opera, Chrome
+  /* Citation:transparent border webkit:https://stackoverflow.com/questions/4062001/can-you-set-a-border-opacity-in-css */
+}
+.steptitle{
+/* grid-column: 2 / span 2; */
+color:var(--color1);
+/* height: 100%; */
+font-size:3vh;
+background-color: white;
+font-weight: bold;
+padding:30px;
+text-transform: uppercase;
+}
+.step1, .step2, .step3, .step4, .step5, .step6, .step7, .step8{
+  font-size:10vh;
+  font-weight: bold;
+  font-family: var(--font2);
+  text-align: center;
+  color:var(--color1);
+  z-index:-1;
+  line-height: normal;
+}
+
+/* FLIPCARDS */
+.flip-card {
+  background-color: transparent;
+  height: 40vw;
+  margin: 30px;
+}
+
+.livetv, .sec15, .cc, .ybar{
+height:40vw;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,4);
+}
+
+.flip-card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+-webkit-transition: transform 0.6s;
+-moz-transition: transform 0.6s;
+-o-transition: transform 0.6s;
+transition: transform 0.6s;
+transform-style: preserve-3d;
+}
+.figstate{
+  text-align: center;
+  font-weight: bold;
+  /* padding-top: 10px; */
+  font-size: 15px;
+}
+/* different figstate colors front and back */
+.flip-card-back {
+-webkit-transform: rotateY(180deg);
+-moz-transform: rotateY(180deg);
+-o-transform: rotateY(180deg);
+transform: rotateY(180deg);
+-webkit-animation-name: rotateY(180deg);
+-moz-animation-name: rotateY(180deg);
+-o-animation-name: rotateY(180deg);
+animation-name: rotateY(180deg);
+color: var(--color1);
+}
+.flip-card-front {
+color: var(--color2);
+}
+/* both focus and hover so that accessible for focus only ppl */
+.flip-card:hover .flip-card-inner, .flip-card:focus .flip-card-inner {
+-webkit-transform: rotateY(180deg);
+-moz-transform: rotateY(180deg);
+-o-transform: rotateY(180deg);
+transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+position: absolute;
+background-color: transparent;
+width: 100%;
+height: 100%;
+/* so orig and redesign dont overlap */
+-webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-o-backface-visibility: hidden;
+backface-visibility: hidden;
+}
+/* Flipcard Citation:https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card */
+
+#chenpersona, #cookpersona, #diynapersona{
+  height: 400px;
+}
+#cnbcaffinity{
+  height: 800px;
+}
+
+/* --------------------------------RESUME ONLY--------------------------------------- */
+.minititle,.minititle-resume{
+  font-size: 16px;
+  text-align: center;
+  margin-top: 50px;
+}
+/* remove margin top so ball has space */
+.minititle-resume{
+  margin-top: 0px;
+}
+
+#resume{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,4);
+  height: 80vh;
+  margin-top:50px;
+  margin-bottom: 50px;
+}
+/* --------------------------------ABOUT ONLY--------------------------------------- */
+#about-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+}
+
+#profile-pic-before{
+  width: 100%;
+  align-self: center;
+}
+#about-text{
+  width:100%;
+  font-size: 13px;
+}
+#profile-pic-after{
+  display:none;
+}
+/* Contact Me! */
+h4{
+  font-size: 15px;
+  color: var(--color2);
+  text-align: left;
+  padding-left: 30px;
+  margin-left: inherit;
+  line-height: normal;
+}
+
+/* CONTACT FORM */
+.form-container form{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 40px) 100px 40px ;
+  grid-row-gap: 7px;
+  padding:10px 45px 30px 30px; /*order: top right bottom left */
+  margin: 15px 1vw 30px 1vw;   /*order: top right bottom left */
+  border-radius: 2px;   /* curved border */
+}
+
+label{
+  font-size: 14px;
+  grid-column: 1/span 1;
+  align-items: start;
+}
+
+/* ALL INPUT FIELDS */
+textarea, input[type=text], input[type=email]{
+    border-radius: 3px;   /* curved border */
+    border: 1px solid var(--color3);
+    padding: 10px;
+}
+/* hover */
+textarea:hover, input[type=text]:hover, input[type=email]:hover{
+    border: 2px solid var(--color2);
+}
+/* onclick & while typing */
+textarea:focus, input[type=text]:focus, input[type=email]:focus{
+    border: 2px solid var(--color2);
+    background-color: var(--transparentcolor2);
+    outline: none;  /* no blue border around input */
+}
+
+
+/* SUBMIT BUTTON */
+input[type=submit]{
+  background-color: var(--color1);
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+input[type=submit]:hover{
+  background-color: var(--color2);
+}
+input[type=submit]:active{
+  background-color: black;
+}
+/*###################################################################################################################TABLET##############################################################################################################*/
+
+/* ---------------------------PROCESS TABLET---------------------------------------------------------- */
+@media all and (min-width: 800px){
+  /* top container: row */
+.top-flexcontainer{
+    flex-direction: row;
+}
+  /* project title in upper right */
+.projecttitle-after{
+    display: flex;
+    align-self: center;
+    text-align: right;
+
+    /* width:30%; */
+}
+.projecttitle-before{
+    display:none;
+  }
+.projecttitle-after, #cnbcphone{
+    margin: 30px;
+    width:30%;
+  }
+
+/* STEPS*/
+.container{
+grid-template-columns: 10% 90%;
+}
+.stepcontent{
+  grid-column: 2 /span 1;
+}
+.steptitle{
+  grid-column: 2 / span 1;
+}
+.stepcontentborder{
+  border: 30px solid var(--transparentcolor2);
+}
+.step1, .step2, .step3, .step4, .step5, .step6, .step7, .step8{
+  grid-column: 1 / span 1;
+  font-size:50vh;
+  text-align: right;
+}
+
+/* FLIPCARD RESIZE */
+.flip-card {
+  height: 20vw;
+}
+
+.livetv, .sec15, .cc, .ybar{
+  height:20vw;
+}
+
+  /* -----------------------------RESUME TABLET------------------------------------------------- */
+#resume{
+    width:40%;
+}
+/* -----------------------------ABOUT TABLET------------------------------------------------- */
+
+/* about container: row */
+#about-container{
+    flex-direction: row;
+}
+/* profile pic in upper right */
+#profile-pic-after{
+  display: flex;
+  align-self: flex-start;
+  width:30%;
+}
+/* inherit line height from body so not close together */
+#about-text{
+  line-height: inherit;
+}
+/* remove before prof pic */
+#profile-pic-before{
+  display:none;
+}
+#profile-pic-after, #about-text{
+  margin: 30px;
+}
+
+/* CONTACT FORM */
+.form-container form{
+  grid-template-columns: 100px 300px 10vw;
+  grid-template-rows: repeat(8, 40px);
+  padding:10px 100px 30px 100px;/*order: top right bottom left */
+}
+/* ALL INPUT FIELDS */
+textarea, input[type=text], input[type=email]{
+    margin-top: 5px;
+}
+input[type=text], input[type=email]{
+  grid-column: 2/span 1;
+}
+textarea{
+  grid-column: 2/span 2;
+  grid-row: 4/ span 4;
+}
+
+label{
+  font-size: 14px;
+  grid-column: 1/span 1;
+  align-items: start;
+}
+
+
+/* SUBMIT BUTTON */
+input[type=submit]{
+  grid-row: 8/span 1;
+  grid-column: 3/ span 1;
+  background-color: var(--color1);
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+
+
+/*-----NAV& footer tablet---------------------------------------------------------------------------*/
+nav{
+padding: 0px;
+display:block;
+margin-right:10px;
+}
+nav ul{
+flex-direction: row;
+}
+nav a{
+font-size:10px;
+}
+
+/* FOOTER */
+.tabletfooter{
+  display: block;
+}
+.mobilefooter{
+  display: none;
+}
+/*###################################################################################################################DESKTOP##############################################################################################################*/
+@media all and (min-width: 1000px){
+
+/* rolling BALL ANIMATION */
+@-webkit-keyframes roll {
+from {transform:rotate(0deg); left:-999px; top:30px;}
+to {transform:rotate(1500deg); left:var(--ballstopx); top:30px;}
+}
+@-moz-keyframes roll {
+  from {transform:rotate(0deg); left:-999px; top:30px;}
+  to {transform:rotate(1500deg); left:var(--ballstopx); top:30px;}
+}
+@-o-keyframes roll {
+  from {transform:rotate(0deg); left:-999px; top:30px;}
+  to {transform:rotate(1500deg); left:var(--ballstopx); top:30px;}
+}
+@keyframes roll {
+  from {transform:rotate(0deg); left:-999px; top:30px;}
+  to {transform:rotate(1500deg); left:var(--ballstopx); top:30px;}
+}
+#logo{
+height: 100px;
+position: relative;
+padding-top: 0px;
+/* first make a NAME for the animation above */
+-webkit-animation-name: roll;
+-moz-animation-name: roll;
+-o-animation-name: roll;
+animation-name: roll;
+/* duration*/
+-webkit-animation-duration: 3s;
+-moz-animation-duration: 3s;
+-o-animation-duration: 3s;
+animation-duration: 3s;
+/* # of times/SO IT DOESNT REPEAT */
+-webkit-animation-iteration-count: 1;
+-moz-animation-iteration-count: 1;
+-o-animation-iteration-count: 1;
+animation-iteration-count: 1;
+/* Stays in final position */
+-webkit-animation-fill-mode: forwards;
+-moz-animation-fill-mode: forwards;
+-o-animation-fill-mode: forwards;
+animation-fill-mode: forwards;
+}
+/* ---------------------------WELCOME DESKTOP---------------------------------------------------------- */
+
+/* GALLERY */
+.gallery > a{
+width: 300px;
+height: 300px;
+}
+/* ---------------------------ABOUT DESKTOP---------------------------------------------------------- */
+
+/* ABOUT */
+#about-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 30px;
+}
+#profile-pic-after{
+  align-self: center;
+}
+#about-text{
+  width:100%;
+  font-size: 13px;
+}
+/* CONTACT FORM */
+.form-container form{
+  grid-template-columns: 100px 300px 30vw;;
+  grid-template-rows: repeat(8, 40px);
+  padding:10px 100px 30px 100px;/*order: top right bottom left */
+}
+/* email & name FIELDS */
+input[type=text], input[type=email]{
+  grid-column: 2/span 1;
+}
+/* message */
+textarea{
+  grid-column: 2/span 3;
+  grid-row: 4/ span 4;
+}
+
+/* SUBMIT BUTTON */
+input[type=submit]{
+  grid-row: 8/span 1;
+  grid-column: 4/ span 1;
+}
+
+/* ---------------------------NAV & FOOTER---------------------------------------------------------- */
+/* NAV */
+header{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+nav{
+/* text-align: right; */
+padding: 10px 0px;
+display:inline-block;
+margin-right:10px;
+}
+nav ul{
+flex-direction: row;
+}
+nav a{
+font-size:1vw;
+}
+/* FOOTER */
+.desktopfooter{
+  display: block;
+}
+.tabletfooter, .mobilefooter{
+  display:none;
+}
+
+}/* closing desktop bracket */
+
+/* REDUCE MOTION */
+@media screen and (prefers-reduced-motion: reduce){
+html{
+  scroll-behavior: auto; /* Removes scroll animation */
+}
+.skip a{
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+#logo, #resumelogo{
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
+  animation: none;
+}
+nav a:hover{
+transition: none;
+}
+.gallery a:hover:nth-child(even), .gallery a:hover:nth-child(odd){
+transition: none;
+}
+.flip-card-inner {
+-webkit-transition: none;
+-moz-transition: none;
+-o-transition: none;
+transition: none;
+}
+
+} /* reduced motion closing bracket */
