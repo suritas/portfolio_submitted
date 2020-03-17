@@ -160,7 +160,7 @@ justify-content: center;
 margin:50px;
 }
 .gallery > a{
-border: 10px grey solid;
+border: 10px #99CC33 solid;
 color:black;   /* for WAVE */
 font-size: 18px;  /* for WAVE */
 text-decoration: none;  /* for WAVE */
