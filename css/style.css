@@ -545,7 +545,7 @@ textarea, input[type=text], input[type=email]{
 }
 /* hover */
 textarea:hover, input[type=text]:hover, input[type=email]:hover{
-    border: 2px solid var(--color2);
+    border: 2px solid #99CC33;
 }
 /* onclick & while typing */
 textarea:focus, input[type=text]:focus, input[type=email]:focus{
@@ -564,7 +564,7 @@ input[type=submit]{
   cursor: pointer;
 }
 input[type=submit]:hover{
-  background-color: var(--color2);
+  background-color: #99CC33;
 }
 input[type=submit]:active{
   background-color: black;
